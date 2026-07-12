@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>海龟汤 | WhatAmI.today</title>
+    <meta
+      name="description"
+      content="适合朋友线下聚会的海龟汤主持工具。抽题、展示题面、查看汤底和提示都在一部手机里完成。"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23151518'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-size='28' fill='%23d8ff65'%3E%3F%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./styles.css?v=5" />
+  </head>
+  <body>
+    <main class="shell">
+      <section id="app" aria-busy="false"></section>
+      <div id="live-status" class="sr-only" aria-live="polite"></div>
+    </main>
+
+    <div id="modal-root" class="modal-root" hidden></div>
+
+    <script src="./soups.js?v=5" defer></script>
+    <script src="./data.js?v=5" defer></script>
+    <script src="./app.js?v=5" defer></script>
+  </body>
+</html>
