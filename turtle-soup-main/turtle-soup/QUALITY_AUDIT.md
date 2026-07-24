@@ -1,442 +1,653 @@
-# 海龟汤题库质量审计
+# 海龟汤题库写作规范（Turtle Soup Writing Rules）
 
-本报告按写作规范做结构化初筛，用于分批改写。它不是最终人工判断，但能找出最需要优先处理的题。
+## 背景
 
-## 数据结构
+我们正在制作一个高质量的原创海龟汤（Turtle Soup）Web App。
 
-- 当前有效题目：657
-- 原创/主题库：106
-- legacy 导入题：551
-- 当前运行时已改为单一 `soups.js`，不再依赖 `legacy-soups.js` 加载顺序。
-- 已按规范完成结构性改写：328 道。
+我们的目标不是写小说、短篇故事或微剧本，而是设计真正具有推理乐趣的海龟汤谜题。
 
-## 已完成批次
+请严格按照以下规范生成或修改所有题目。
 
-- legacy-b-020｜板着脸的新娘
-- legacy-500-464｜学长的女友
-- legacy-500-425｜吃饭
-- legacy-500-362｜相见不如怀
-- legacy-b-027｜复仇的圣剑
-- legacy-500-308｜推理作家
-- legacy-500-370｜推理作家
-- legacy-500-139｜她身上又出现淤青了
-- legacy-500-201｜网络帖子
-- legacy-150-008｜一场意外后
-- legacy-500-007｜布偶
-- legacy-500-433｜一场意外后
-- legacy-500-273｜许愿
-- legacy-500-075｜酒店的派对上
-- legacy-500-294｜病态
-- legacy-500-314｜儿子
-- legacy-500-484｜脾气不好的妈妈
-- legacy-500-327｜声色有罪
-- legacy-500-276｜见光
-- legacy-500-293｜外面有鬼
-- legacy-500-329｜最后的舞蹈
-- legacy-500-391｜最后的舞蹈
-- legacy-500-266｜救赎
-- legacy-500-328｜死亡录像
-- legacy-500-140｜怪物
-- legacy-500-488｜妹妹将要结婚了
-- legacy-500-271｜重逢
-- legacy-500-369｜探监
-- legacy-500-307｜探监
-- legacy-500-145｜出轨
-- dorm-wash-hair-death｜洗头
-- wishing-pond｜灵验
-- quarrel-death｜吵架
-- legacy-500-461｜神奇娃娃
-- legacy-500-487｜我从奶奶房间拿了个橘子给
-- legacy-500-073｜天黑了
-- legacy-500-269｜神秘纸条
-- legacy-500-188｜被偷走的三明治
-- legacy-500-296｜早恋
-- legacy-500-237｜枪与花
-- legacy-500-288｜机关师
-- legacy-500-169｜直播事故
-- legacy-500-356｜保龄球
-- legacy-500-352｜洗头
-- legacy-500-268｜车里的怪味
-- legacy-500-445｜这两天为了补寒假作业
-- legacy-500-170｜没有赴约
-- legacy-150-001｜我是一名大学生
-- legacy-500-171｜新闻
-- legacy-500-382｜坐车
-- legacy-500-320｜女孩上车后一路疾驰
-- legacy-500-395｜标点符号
-- legacy-500-465｜忠犬
-- green-red-white-tragedy｜变色的求婚
-- future-postcard｜明信片
-- legacy-500-353｜办手续
-- legacy-500-415｜办手续
-- last-photo｜最后一张照片
-- magic-doll｜神奇的娃娃
-- green-teeth｜绿牙
-- street-work-child｜工作
-- cow-eat-grass-night｜牛吃草
-- strange-child｜孩子
-- legacy-500-254｜找朋友
-- legacy-500-463｜姐妹难分
-- legacy-500-256｜三个小孩
-- legacy-500-285｜奶奶
-- legacy-500-012｜门中女郎
-- legacy-500-325｜小红帽
-- legacy-500-202｜猜猜她在哪
-- legacy-b-040｜空位
-- legacy-500-312｜约定
-- legacy-500-306｜蝴蝶结
-- legacy-500-489｜你独自住在郊外
-- legacy-500-473｜登山
-- legacy-500-358｜恩爱夫妻
-- legacy-500-323｜灵异照片
-- legacy-500-261｜公交惊魂
-- legacy-500-429｜周年忌日
-- legacy-500-085｜牛吃草
-- legacy-500-207｜水草
-- legacy-500-262｜我最好的朋
-- legacy-500-015｜恐怖变态向
-- legacy-500-068｜睡不好
-- legacy-500-244｜甜汤命案
-- legacy-500-478｜甜汤命案
-- legacy-500-449｜恐惧与绝望
-- legacy-doc-003｜水草问题
-- legacy-500-179｜画画
-- legacy-500-497｜小男孩和父亲流浪荒岛时
-- legacy-500-297｜意外
-- legacy-500-229｜早晨亲吻老婆时
-- legacy-500-212｜生日
-- legacy-500-298｜枪声
-- legacy-150-021｜在一个月黑风高的晚上
-- legacy-500-456｜在一个月黑风高的晚上
-- legacy-500-118｜画家接到了一个电话
-- legacy-500-190｜骨灰盒
-- legacy-500-334｜阴阳眼
-- legacy-500-499｜一男子工作下班回到家
-- legacy-500-227｜星星
-- legacy-500-197｜汉堡
-- legacy-500-428｜三兄弟
-- legacy-doc-006｜满地木屑问题
-- legacy-500-290｜游乐场
-- legacy-150-113｜那年冬天
-- legacy-500-082｜跳楼女
-- legacy-500-041｜老师给小女孩戴上了蝴蝶结
-- legacy-500-263｜床底
-- legacy-500-112｜那年冬天
-- unripe-melon｜没熟
-- legacy-500-131｜丰收
-- safe-hiding｜安全
-- legacy-500-491｜男子清晨起来刷牙
-- legacy-500-071｜某妇产科医院的女子生下了
-- legacy-500-043｜男人走进一家餐厅
-- legacy-150-044｜男人走进一家餐厅
-- legacy-500-303｜音乐停止时
-- legacy-500-469｜直播间
-- legacy-150-077｜热气球在荒野外有一具男尸
-- legacy-500-206｜跳火车
-- legacy-500-017｜热气球
-- legacy-500-020｜水草
-- legacy-500-176｜散步
-- legacy-500-398｜小女孩
-- legacy-500-336｜小女孩
-- legacy-500-175｜别慌
-- legacy-500-182｜跳伞
-- legacy-500-302｜毒杀手段
-- legacy-500-330｜报纸
-- legacy-500-392｜报纸
-- legacy-500-222｜打猎
-- legacy-500-315｜女儿的话
-- legacy-500-377｜女孩的话
-- legacy-500-067｜一天
-- legacy-500-178｜粉丝签名
-- legacy-150-066｜最后一次“这是最后一次了
-- legacy-150-068｜“一天！”
-- legacy-500-065｜最后一次
-- legacy-500-365｜兄弟
-- legacy-500-004｜我与神明画押神明骂我傻叉
-- legacy-500-083｜遇难船
-- legacy-500-132｜吵架
-- legacy-500-056｜当他走出家
-- legacy-b-038｜退休
-- legacy-500-486｜6岁时外婆告诉我不要吃黄
-- legacy-500-165｜选择沉默
-- legacy-500-284｜他是个有钱人家的公子哥
-- legacy-500-498｜留学回家的我一次出门时
-- legacy-500-215｜日记
-- legacy-b-034｜华仔买冰棍
-- legacy-150-097｜装修声
-- legacy-500-096｜装修声
-- legacy-a-023｜贩卖
-- legacy-500-475｜医学院惨案
-- legacy-500-119｜在一间医学院里
-- legacy-500-460｜电梯
-- legacy-500-252｜最后一句话
-- legacy-500-006｜娃娃
-- legacy-b-001｜礼物
-- legacy-500-198｜钓鱼
-- legacy-500-286｜小明
-- legacy-500-375｜妹妹
-- legacy-500-249｜腊肉
-- legacy-500-313｜妹妹
-- legacy-500-355｜拍卖会
-- legacy-500-242｜超重
-- legacy-500-257｜顶楼
-- legacy-500-210｜满地木屑
-- legacy-500-272｜自杀视频
-- legacy-500-359｜见家长
-- legacy-500-248｜小星星
-- legacy-500-483｜男孩躺在床上
-- legacy-500-128｜喜欢的作者
-- legacy-500-149｜盲灾
-- legacy-a-029｜4.5捉迷藏汤姆和小伙伴
-- legacy-500-183｜女演员
-- legacy-500-189｜胡萝卜汁
-- legacy-500-295｜鼓掌
-- legacy-b-016｜观察人的流浪汉
-- legacy-a-024｜旧日记
-- legacy-150-125｜报警“疑似胁迫
-- legacy-500-124｜报警
-- legacy-500-265｜黑色巨人
-- legacy-500-361｜飞机
-- legacy-150-089｜保姆
-- legacy-500-088｜保姆
-- legacy-500-255｜开心一家人
-- legacy-500-267｜假女儿
-- legacy-150-017｜纸条
-- legacy-500-235｜诡异牛肉面
-- legacy-500-347｜网购
-- legacy-500-452｜纸条
-- legacy-500-500｜小李崇拜父亲
-- legacy-500-177｜蛇毒
-- legacy-500-346｜公厕
-- legacy-a-007｜守卫的梦
-- legacy-500-101｜厕所
-- legacy-500-121｜展览会
-- legacy-a-036｜着魔的球
-- legacy-500-009｜三兄弟
-- legacy-500-055｜伴着舒缓的音乐
-- legacy-500-144｜水手怕鱼
-- legacy-500-155｜我们的婚礼
-- legacy-500-181｜嘀嘀嘀
-- legacy-500-185｜邻居
-- legacy-500-204｜妈妈再爱我一次
-- legacy-500-250｜沉默的男人
-- legacy-500-251｜落枕的原因
-- legacy-500-253｜奇怪的新家
-- legacy-500-339｜笑容
-- legacy-500-344｜选择
-- legacy-500-360｜瓷器
-- legacy-500-363｜吃饭
-- legacy-500-401｜笑容
-- legacy-500-422｜瓷器
-- legacy-500-444｜我洗完澡后
-- legacy-500-474｜疯子
-- legacy-b-030｜后悔莫及
-- bow-knot｜蝴蝶结
-- cold-night-soldier｜寒冷的夜晚
-- fan-writer｜作家
-- friend-phone-comment｜你妈真好
-- half-bottle-perfume｜半瓶香水
-- hotel-card｜房卡
-- legacy-150-148｜她新交了一个男友
-- legacy-500-019｜墙上的一句话
-- legacy-500-038｜生日聚会
-- legacy-500-079｜绿牙齿
-- legacy-500-093｜孤寡老人
-- legacy-500-113｜棕灰色的旧伞
-- legacy-500-116｜小王下班回家
-- legacy-500-120｜蛛丝小镇
-- legacy-500-136｜半夜访客
-- legacy-500-147｜她新交了一个男友
-- legacy-500-156｜致命列车
-- legacy-500-180｜游泳
-- legacy-500-184｜苹果
-- legacy-500-192｜红牙
-- legacy-500-194｜救救我
-- legacy-500-200｜愿望
-- legacy-500-208｜葬礼的故事
-- legacy-500-219｜医院和袖口
-- legacy-500-223｜毒药
-- legacy-500-225｜飞机
-- legacy-500-234｜灰色的正义
-- legacy-500-277｜画师一画
-- legacy-500-280｜线索
-- legacy-500-282｜深夜访客
-- legacy-500-299｜香水
-- legacy-500-331｜地下室
-- legacy-500-367｜山顶小屋
-- legacy-500-470｜宇航员之死
-- legacy-500-476｜张三去了趟厕所
-- legacy-500-485｜生日聚会
-- legacy-a-002｜饮酒
-- legacy-a-003｜动弹不得
-- legacy-a-014｜汤姆和鲍勃
-- legacy-b-007｜含泪付款
-- legacy-b-012｜雨夹雪
-- legacy-b-018｜倒空瓶子
-- legacy-b-024｜沉睡中醒来
-- legacy-doc-004｜葬礼故事的问题
-- loyal-dog-killer｜忠诚的狗
-- magic-potion｜药水
-- pregnancy｜怀孕
-- pull-radish｜拔萝卜
-- single-pair-shoes｜一双鞋
-- count-steps-mad｜几节
-- doll-forever-together｜永远在一起
-- dumpling-maker｜饺子
-- hide-and-seek-killer｜找到你了
-- legacy-500-066｜男子回到家
-- legacy-500-091｜清洁工
-- legacy-500-094｜人体老师
-- legacy-500-157｜女明星
-- legacy-500-158｜女明星
-- legacy-500-203｜阳台上的女孩
-- legacy-500-260｜不要伸出脚
-- legacy-500-274｜别回头
-- legacy-500-287｜房间
-- legacy-500-310｜销售
-- legacy-500-372｜销售
-- legacy-500-447｜三兄弟
-- legacy-500-493｜女明星养了一个女儿
-- legacy-a-039｜身边的羽毛
-- legacy-doc-001｜女明星
-- red-skirt-sister｜小红裙
-- disappeared-sister｜消失的姐姐
-- legacy-150-090｜圣诞节那天
-- legacy-150-147｜深夜
-- legacy-500-031｜枪声
-- legacy-500-034｜北方人
-- legacy-500-089｜圣诞节那天
-- legacy-500-107｜泳装和棕刷
-- legacy-500-146｜医院
-- legacy-500-333｜标点符号
-- legacy-500-472｜第五个人
-- legacy-500-495｜车上的陌生人
-- legacy-a-005｜天降祸水
-- legacy-a-008｜火灾
-- legacy-b-002｜回眸一笑
-- legacy-b-014｜车上的陌生人
-- stuffed-doll-worm｜布偶
-- legacy-150-032｜约饭
-- legacy-150-037｜五杀
-- legacy-150-100｜利器
-- legacy-150-103｜母亲的报案
-- legacy-150-109｜破掉的衣服
-- legacy-150-139｜做我女朋友吧
-- legacy-500-001｜受伤
-- legacy-500-002｜杏仁
-- legacy-500-008｜一见钟情
-- legacy-500-016｜生日
-- legacy-500-018｜葬礼
-- legacy-500-023｜热气球
-- legacy-500-032｜约饭
-- legacy-500-035｜我的盖子呢
-- legacy-500-042｜满地木屑
-- legacy-500-046｜手表
-- legacy-500-048｜开门后
-- legacy-500-049｜关灯睡觉
-- legacy-500-050｜一截梯子
-- legacy-500-054｜窗户没有灯光
-- legacy-500-057｜地板上的水
-- legacy-500-059｜音乐停了
-- legacy-500-060｜一个房间
-- legacy-500-062｜老约翰
+---
 
-## 规则风险初筛
+# 核心理念
 
-- 依赖巧合/意外类词：10
-- “突然”类词：44
-- 汤底像继续讲故事：91
-- 梦游/幻觉/精神疾病类反转：25
-- 未铺垫世界观/超自然风险：8
-- 血腥冲击替代推理风险：273
-- 汤底超过 260 字：1
-- 汤面超过 120 字：6
-- teaser 与 surface 完全相同：118
-- 尚未处理且命中风险：274
+海龟汤本质是：
 
-## 下一批优先改写
+> **玩家根据有限信息，通过不断提问，还原完整事件。**
 
-- legacy-500-063｜她走出了六楼的电梯门｜500套｜graphicShock, sameTeaserSurface｜surface 18 / answer 29
-- legacy-500-069｜伪造｜500套｜graphicShock, longSurface｜surface 126 / answer 45
-- legacy-500-074｜当我开门后发现哥哥不见了｜500套｜graphicShock, sameTeaserSurface｜surface 16 / answer 118
-- legacy-500-084｜洋娃娃｜500套｜graphicShock, sameTeaserSurface｜surface 37 / answer 74
-- legacy-500-095｜高楼｜500套｜graphicShock, sameTeaserSurface｜surface 37 / answer 63
-- legacy-500-099｜利器｜500套｜graphicShock, sameTeaserSurface｜surface 31 / answer 100
-- legacy-500-100｜电话｜500套｜graphicShock, sameTeaserSurface｜surface 26 / answer 54
-- legacy-500-102｜母亲的报案｜500套｜graphicShock, sameTeaserSurface｜surface 38 / answer 149
-- legacy-500-103｜母亲打了一通电话杀死了女｜500套｜graphicShock, sameTeaserSurface｜surface 14 / answer 51
-- legacy-500-108｜在一旁工作的同事身上的衣｜500套｜graphicShock, sameTeaserSurface｜surface 37 / answer 9
+因此：
 
+- 玩家玩的应该是"推理"
+- 不是"听故事"
+- 更不是"等待作者公布答案"
 
-- legacy-500-122｜打折的零食｜500套｜graphicShock, sameTeaserSurface｜surface 41 / answer 136
-- legacy-500-143｜女人站在卧室里｜500套｜sudden, dreamMental｜surface 70 / answer 62
-- legacy-500-154｜万圣节面县我们的婚礼致命列车｜500套｜graphicShock, sameTeaserSurface｜surface 38 / answer 164
-- legacy-500-159｜灵验｜500套｜graphicShock, sameTeaserSurface｜surface 12 / answer 80
-- legacy-500-162｜愿望｜500套｜graphicShock, sameTeaserSurface｜surface 27 / answer 105
-- legacy-500-166｜门铃游戏｜500套｜graphicShock, sameTeaserSurface｜surface 31 / answer 144
-- legacy-500-168｜杀了我｜500套｜graphicShock, sameTeaserSurface｜surface 33 / answer 15
-- legacy-500-172｜手机｜500套｜graphicShock, sameTeaserSurface｜surface 19 / answer 69
-- legacy-500-224｜明星海报｜500套｜graphicShock, sameTeaserSurface｜surface 25 / answer 91
-- legacy-500-232｜懂事｜500套｜graphicShock, sameTeaserSurface｜surface 34 / answer 173
+一个优秀的海龟汤，在公布汤底后，玩家应该觉得：
 
+> "原来如此！"
 
-- legacy-500-236｜跳舞的洋娃｜500套｜graphicShock, sameTeaserSurface｜surface 39 / answer 51
-- legacy-500-240｜评论｜500套｜graphicShock, longAnswer｜surface 45 / answer 296
-- legacy-500-246｜故人归｜500套｜graphicShock, sameTeaserSurface｜surface 26 / answer 121
-- legacy-500-258｜去而复返｜500套｜graphicShock, sameTeaserSurface｜surface 17 / answer 57
-- legacy-500-259｜娃娃鱼｜500套｜graphicShock, sameTeaserSurface｜surface 19 / answer 198
-- legacy-500-264｜丢失的手机｜500套｜graphicShock, sameTeaserSurface｜surface 20 / answer 166
-- legacy-500-270｜女儿看着雪花兴奋得手舞足｜500套｜graphicShock, sameTeaserSurface｜surface 22 / answer 171
-- legacy-500-275｜影子｜500套｜graphicShock, sameTeaserSurface｜surface 25 / answer 44
-- legacy-500-283｜石头剪子布｜500套｜graphicShock, sameTeaserSurface｜surface 40 / answer 190
-- legacy-500-291｜毁尸灭迹｜500套｜graphicShock, sameTeaserSurface｜surface 15 / answer 145
-- legacy-500-300｜闪光｜500套｜graphicShock, sameTeaserSurface｜surface 12 / answer 55
-- legacy-500-301｜胶水｜500套｜graphicShock, sameTeaserSurface｜surface 21 / answer 29
-- legacy-500-304｜低温｜500套｜graphicShock, sameTeaserSurface｜surface 37 / answer 69
-- legacy-500-305｜街景｜500套｜graphicShock, sameTeaserSurface｜surface 23 / answer 35
-- legacy-500-309｜崩溃｜500套｜graphicShock, sameTeaserSurface｜surface 17 / answer 170
-- legacy-500-318｜因果｜500套｜graphicShock, sameTeaserSurface｜surface 27 / answer 128
-- legacy-500-321｜矛盾的他｜500套｜graphicShock, sameTeaserSurface｜surface 36 / answer 98
-- legacy-500-326｜粉面罗刹｜500套｜graphicShock, sameTeaserSurface｜surface 20 / answer 182
-- legacy-500-332｜姐妹｜500套｜graphicShock, sameTeaserSurface｜surface 21 / answer 71
-- legacy-500-341｜灵堂｜500套｜graphicShock, sameTeaserSurface｜surface 35 / answer 51
-- legacy-500-364｜祝福｜500套｜graphicShock, sameTeaserSurface｜surface 24 / answer 147
-- legacy-500-366｜致命探望｜500套｜graphicShock, sameTeaserSurface｜surface 23 / answer 86
-- legacy-500-383｜矛盾的他｜500套｜graphicShock, sameTeaserSurface｜surface 35 / answer 99
-- legacy-500-388｜粉面罗刹｜500套｜graphicShock, sameTeaserSurface｜surface 20 / answer 182
-- legacy-500-394｜姐妹｜500套｜graphicShock, sameTeaserSurface｜surface 22 / answer 58
-- legacy-500-403｜灵堂｜500套｜graphicShock, sameTeaserSurface｜surface 32 / answer 51
-- legacy-500-404｜不朽｜500套｜graphicShock, sameTeaserSurface｜surface 41 / answer 30
-- legacy-500-427｜红色高跟鞋｜500套｜graphicShock, sameTeaserSurface｜surface 33 / answer 116
-- legacy-500-454｜敲门声｜500套｜graphicShock, longSurface｜surface 126 / answer 92
-- legacy-500-455｜表演｜500套｜graphicShock, sameTeaserSurface｜surface 39 / answer 141
-- legacy-500-462｜枕头｜500套｜graphicShock, sameTeaserSurface｜surface 22 / answer 136
-- legacy-500-467｜红衣宿舍｜500套｜graphicShock, sameTeaserSurface｜surface 37 / answer 78
-- legacy-500-468｜高跟鞋｜500套｜graphicShock, sameTeaserSurface｜surface 20 / answer 65
-- legacy-500-481｜有一位男子常驻在了一家饭｜500套｜graphicShock, sameTeaserSurface｜surface 42 / answer 56
-- legacy-a-031｜路灯｜40套A｜graphicShock, longSurface｜surface 121 / answer 103
-- legacy-b-017｜疑犯是月亮｜40套B｜graphicShock, sameTeaserSurface｜surface 32 / answer 59
-- legacy-b-025｜地上的口红｜40套B｜graphicShock, longSurface｜surface 124 / answer 200
-- legacy-b-039｜还能再抢救｜40套B｜sudden, continuation｜surface 58 / answer 190
-- balcony-girl｜阳台上的女孩｜未知｜graphicShock｜surface 78 / answer 76
-- beggar-red-envelope｜乞丐｜未知｜graphicShock｜surface 48 / answer 74
-- belle-princess｜贝尔公主｜未知｜graphicShock｜surface 61 / answer 78
-- birthday-kill-friends｜生日｜未知｜graphicShock｜surface 56 / answer 74
-- chocolate-murder｜巧克力杀人事件｜未知｜graphicShock｜surface 35 / answer 53
-- classroom-window-hand｜教室窗外的手｜未知｜graphicShock｜surface 79 / answer 97
-- count-window-killer｜数数｜未知｜graphicShock｜surface 72 / answer 70
-- dad-hide-death｜爸爸藏了他的死讯｜未知｜graphicShock｜surface 42 / answer 50
-- doctor-album-secret｜相册｜未知｜graphicShock｜surface 57 / answer 67
-- dont-trust-no1｜不要相信一号｜未知｜graphicShock｜surface 80 / answer 102
-- elevator-no-school｜电梯｜未知｜graphicShock｜surface 65 / answer 69
-- fifth-man-dry｜没淋湿的第五人｜未知｜graphicShock｜surface 52 / answer 59
-- fridge-head-salad｜冰箱里的人头沙拉｜未知｜graphicShock｜surface 65 / answer 81
-- funeral-dance｜舞｜未知｜graphicShock｜surface 50 / answer 68
-- good-boy-kill-parent｜好孩子（人视角）｜未知｜graphicShock｜surface 52 / answer 62
-- good-boy-murder-dog｜好孩子（狗视角）｜未知｜graphicShock｜surface 61 / answer 74
-- grandma-apple｜外婆的苹果｜未知｜graphicShock｜surface 62 / answer 73
-- half-match｜半根火柴｜未知｜graphicShock｜surface 37 / answer 72
-- hide-and-seek｜捉迷藏｜未知｜graphicShock｜surface 46 / answer 62
-- honey-cake-doll｜娃娃｜未知｜graphicShock｜surface 57 / answer 78
-- ice-cream-regret｜冰淇淋｜未知｜graphicShock｜surface 64 / answer 75
-- legacy-150-005｜我杀了人｜150套｜graphicShock｜surface 43 / answer 115
+而不是：
+
+> "这谁猜得到？"
+
+---
+
+# 一个海龟汤由三部分组成
+
+## ① 完整故事（Hidden Story）
+
+完整事件。
+
+这是整个故事真正发生的全部经过。
+
+玩家看不到。
+
+---
+
+## ② 汤面（Question）
+
+汤面必须只是完整故事中的一个切片。
+不是故事开头。不是故事结尾。更不是完整剧情简介。
+玩家需要根据这个切片，
+通过提问逐渐还原整个故事、故事的上下文。
+
+---
+
+## ③ 汤底（Answer）
+
+汤底不是新的故事。不是继续讲剧情。不是补充设定。
+
+汤底唯一职责：**解释为什么汤面会发生。**
+
+---
+
+# 最重要原则
+
+## 汤底必须能够解释汤面。
+
+而不是继续发展汤面。
+
+错误案例：
+汤面：男人收到一封信。
+汤底：后来发生了一场大火。
+× 这是继续讲故事。
+
+正确：
+汤底应该解释：
+为什么会收到这封信。
+为什么男人反应如此。
+为什么题面会发生。
+
+---
+
+# AI必须遵守的规则
+
+---
+
+# Rule 1
+
+## 不允许新增关键事件
+
+汤底中，不能突然出现题面完全没有任何铺垫的新事件。
+
+例如：
+
+×
+
+后来发生爆炸。
+
+后来地震。
+
+后来突然停电。
+
+后来飞机坠毁。
+
+后来世界末日。
+
+这些如果题面没有任何暗示，
+
+都属于作者作弊。
+
+---
+
+# Rule 2
+
+## 不允许新增关键人物
+
+题面没有出现、
+
+没有暗示的人，
+
+不能成为谜底核心。
+
+例如：
+
+×
+
+最后突然出现：
+
+警察
+
+哥哥
+
+医生
+
+邻居
+
+杀手
+
+魔法师
+
+陌生人
+
+如果他们决定谜底，
+
+那么汤面必须提前留下线索。
+
+---
+
+# Rule 3
+
+## 不允许新增世界观
+
+禁止：
+
+×
+
+其实有鬼。
+
+其实有魔法。
+
+其实是时间循环。
+
+其实是平行宇宙。
+
+其实是假死药。
+
+其实这是梦。
+
+除非：
+
+题面已经明确暗示这些设定存在。
+
+否则属于作弊。
+
+---
+
+# Rule 4
+
+## 不允许依赖巧合
+
+以下词语尽量避免：
+
+刚好
+
+碰巧
+
+恰好
+
+突然
+
+意外
+
+正巧
+
+如果故事成立完全依赖巧合，
+
+直接重写。
+
+---
+
+# Rule 5
+
+## 不允许写成长篇小说
+
+汤底不是微剧本。
+
+不是小说。
+
+不是剧情简介。
+
+不是电影解说。
+
+汤底应该简洁回答：
+
+为什么？
+
+而不是：
+
+后来……
+
+接着……
+
+最后……
+
+---
+
+# Rule 6
+
+## 汤底必须形成完整因果链
+
+故事必须满足：
+
+原因
+
+↓
+
+过程
+
+↓
+
+结果（汤面）
+
+玩家看到的是：
+
+结果。
+
+需要推理：
+
+原因。
+
+整个逻辑必须闭环。
+
+---
+
+# Rule 7
+
+## 汤面必须具有可推理性
+
+优秀汤面：
+
+玩家不断提问，
+
+会越来越接近答案。
+
+错误汤面：
+
+玩家问得越多，
+
+可能性反而越来越多。
+
+如果信息不能逐步收敛，
+
+请重新设计。
+
+---
+
+# Rule 8
+
+## 汤底不能重新创造一个故事
+
+很多AI都会犯这个错误：
+
+汤面：
+
+A
+
+汤底：
+
+A以后又发生了BCD……
+
+这是微剧本。
+
+不是海龟汤。
+
+正确：
+
+汤底应该解释：
+
+为什么A发生。
+
+而不是继续讲BCD。
+
+---
+
+# Rule 9
+
+## 每一句汤面都必须解释
+
+例如：
+
+男人笑了。
+
+↓
+
+为什么？
+
+女人哭了。
+
+↓
+
+为什么？
+
+门锁着。
+
+↓
+
+为什么？
+
+所有信息，
+
+汤底都必须对应解释。
+
+不能留下：
+
+"作者就是这么写。"
+
+---
+
+# Rule 10
+
+## 删除所有废话
+
+如果一句话：
+
+删掉以后，
+
+谜题没有任何影响。
+
+立即删除。
+
+汤底必须高度精炼。
+
+---
+
+# Rule 11
+
+## 题面不能透露过多
+
+玩家应该：
+
+知道发生了什么。
+
+不知道为什么。
+
+如果汤面已经快把答案说出来了，
+
+重写。
+
+---
+
+# Rule 12
+
+## 题面不能信息过少
+
+如果玩家完全不知道从哪里开始猜。
+
+说明汤面信息不足。
+
+需要增加可推理线索。
+
+---
+
+# Rule 13
+
+## 真相必须唯一
+
+优秀海龟汤：
+
+公布答案后，
+
+玩家会觉得：
+
+"只能这样解释。"
+
+而不是：
+
+"也可以解释成另外五种。"
+
+---
+
+# Rule 14
+
+## 所有反转必须来自重新理解题面
+
+优秀反转：
+
+玩家重新理解：
+
+一句话
+
+一个动作
+
+一个身份
+
+一个词语
+
+例如：
+
+"死亡"
+
+其实指：
+
+法律死亡。
+
+社会死亡。
+
+人格死亡。
+
+而不是：
+
+突然出现新设定。
+
+---
+
+# Rule 15
+
+## 玩家的问题必须能够逐步逼近答案
+
+例如：
+
+他死了吗？
+
+↓
+
+不是。
+
+他活着？
+
+↓
+
+是。
+
+认识女人？
+
+↓
+
+认识。
+
+……
+
+最终得到真相。
+
+如果玩家无论怎么问，
+
+都无法靠近答案。
+
+说明设计失败。
+
+---
+
+# Rule 16
+
+## 所有故事必须符合现实逻辑
+
+除非明确属于：
+
+科幻
+
+超自然
+
+规则怪谈
+
+否则：
+
+必须符合现实世界因果。
+
+人物行为、
+
+心理、
+
+动机、
+
+事件，
+
+都必须合理。
+
+---
+
+# Rule 17
+
+## 角色行为必须符合人物动机
+
+任何角色：
+
+必须有合理目的。
+
+不能：
+
+为了制造反转而行动。
+
+例如：
+
+×
+
+他突然自杀。
+
+为什么？
+
+没有原因。
+
+×
+
+他突然杀人。
+
+为什么？
+
+作者需要反转。
+
+禁止。
+
+---
+
+# Rule 18
+
+## 玩家必须有机会猜出来
+
+如果公布答案以后，
+
+90%以上玩家都会说：
+
+"这谁能猜到？"
+
+说明谜题失败。
+
+如果玩家会说：
+
+"原来如此。"
+
+说明成功。
+
+---
+
+# AI生成流程
+
+每次生成时：
+
+## Step 1
+
+先写完整故事（Hidden Story）。
+
+不要输出。
+
+仅供自己思考。
+
+---
+
+## Step 2
+
+从完整故事中，
+
+截取最适合作为汤面的一个瞬间。
+
+---
+
+## Step 3
+
+写汤底。
+
+汤底只解释：
+
+为什么汤面发生。
+
+---
+
+## Step 4
+
+检查：
+
+有没有新增事件？
+
+有没有新增人物？
+
+有没有新增设定？
+
+有没有巧合？
+
+有没有讲新的故事？
+
+如果有，
+
+重新写。
+
+---
+
+# AI最终自检（必须全部通过）
+
+生成完成以后，请逐项检查：
+
+- [ ] 玩家是否可以根据汤面一步步推理出真相？
+- [ ] 汤底是否只是在解释汤面，而不是继续讲故事？
+- [ ] 是否没有新增关键人物？
+- [ ] 是否没有新增关键事件？
+- [ ] 是否没有新增世界观设定？
+- [ ] 是否没有依赖巧合？
+- [ ] 是否所有细节都形成完整因果？
+- [ ] 是否删除了所有无关信息？
+- [ ] 是否符合现实人物行为逻辑？
+- [ ] 玩家公布答案后是否会觉得："原来如此，而不是这谁猜得到？"
+
+如果任意一项不满足，请直接重写。
+
+---
+
+# 修改已有海龟汤
+
+当需要修改已有题目时，不允许仅修改措辞。
+
+请重点检查：
+
+1. 是否存在逻辑漏洞。
+2. 是否存在无法推理的新事件。
+3. 是否存在无法推理的新人物。
+4. 是否存在为了反转而反转。
+5. 是否汤底其实是另一个故事。
+6. 是否人物行为符合心理和现实逻辑。
+7. 是否可以删减冗余内容。
+8. 是否增强玩家的推理路径，而不是增加剧情。
+
+如果发现以上问题，请优先修改故事结构，而不是润色文案。
+
+---
+
+# 最终目标
+
+我们的目标不是拥有最多的海龟汤。
+
+而是拥有：
+
+**真正值得讨论、值得推理、值得分享的原创海龟汤。**
+
+每一道题都应该让玩家体验到：
+
+> "不是作者告诉了我答案，而是我自己推理出了答案。"
