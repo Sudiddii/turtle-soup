@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>海龟汤 | WhatAmI.today</title>
+    <meta
+      name="description"
+      content="适合朋友线下聚会的海龟汤主持工具。抽题、展示题面、查看汤底和提示都在一部手机里完成。"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23151518'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-size='28' fill='%23d8ff65'%3E%3F%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./styles.css?v=8" />
+  </head>
+  <body class="access-pending">
+    <main id="access-gate" class="access-gate" aria-labelledby="access-title">
+      <section class="access-card">
+        <div class="access-brand" aria-label="WhatAmI.today 海龟汤">
+          <span class="access-brand-mark" aria-hidden="true">?</span>
+          <span>WhatAmI.today</span>
+        </div>
+
+        <div class="access-copy">
+          <p class="access-badge"><span aria-hidden="true">◆</span> 购买用户专属</p>
+          <h1 id="access-title">私享题库</h1>
+          <p>657 道完整海龟汤，只对获得访问码的玩家开放。</p>
+        </div>
+
+        <form id="access-form" class="access-form" novalidate>
+          <label for="access-token">输入访问码</label>
+          <div class="access-input-wrap">
+            <input id="access-token" name="token" type="password" placeholder="输入 9 位访问码" autocomplete="one-time-code" autocapitalize="characters" spellcheck="false" />
+            <button id="access-toggle" class="access-toggle" type="button" aria-pressed="false">显示</button>
+          </div>
+          <p id="access-error" class="access-error" role="alert" hidden></p>
+          <button id="access-submit" class="primary-button access-submit" type="submit">进入私享题库</button>
+        </form>
+
+        <div class="access-meta" aria-label="题库特点">
+          <span>657 道完整题目</span>
+          <span>7 类主题</span>
+          <span>主持人模式</span>
+        </div>
+        <p class="access-note">访问码由购买渠道提供 · 首次验证后本机自动记住</p>
+      </section>
+      <noscript><p class="access-noscript">请启用 JavaScript 后使用访问码进入题库。</p></noscript>
+    </main>
+
+    <main id="site-shell" class="shell" hidden>
+      <section id="app" aria-busy="false"></section>
+      <div id="live-status" class="sr-only" aria-live="polite"></div>
+    </main>
+
+    <div id="modal-root" class="modal-root" hidden></div>
+
+    <script src="./access.js?v=1" defer></script>
+    <script src="./soups.js?v=9" defer></script>
+    <script src="./data.js?v=6" defer></script>
+    <script src="./analytics.js?v=6" defer></script>
+    <script src="./app.js?v=8" defer></script>
+  </body>
+</html>
